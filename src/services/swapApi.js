@@ -13,7 +13,7 @@ export const swapApi = createApi({
 			query: id => `films/${id}?format=json`,
 		}),
 		getCharacters: builder.query({
-			query: () => `people/?format=json`,
+			query: (page = 1) => `people/?page=${page}&format=json`,
 		}),
 		getCharacter: builder.query({
 			query: id => `people/${id}?format=json`,
