@@ -15,7 +15,12 @@ export const favesSlice = createSlice({
 		addFave: (state, action) => {
 			const name = action.payload.name ? action.payload.name : action.payload.title ? action.payload.title : 'no name'
 			const fave = createFave(action.payload, name)
-			state.push(fave)
+			const exists = state.some(x => x.name === fave.name)
+			if (!exists) {
+				state.push(fave)
+			} else {
+				return state
+			}
 		},
 		updateFave: (state, action) => {
 			// find fave
