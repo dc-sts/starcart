@@ -1,5 +1,5 @@
 import { nanoid } from '@reduxjs/toolkit'
-import { Button, Grid, Card, Message, Loader, List, Icon, Container, Menu } from 'semantic-ui-react'
+import { Button, Grid, Card, Message, Loader, List, Menu } from 'semantic-ui-react'
 import { addFave } from '../features/faves'
 import { useGetCharactersQuery } from '../services/swapApi'
 import { useDispatch } from 'react-redux'
@@ -15,7 +15,6 @@ const Characters = () => {
 	const totalPages = Math.floor((data?.count + pageSize - 1) / pageSize)
 
 	const selectCharacter = e => {
-		console.log(e)
 		const { name } = e.currentTarget.dataset
 		const character = data.results.find(character => character.name === name)
 		return character
